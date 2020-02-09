@@ -6,6 +6,7 @@ import "./App.css";
 
 function App() {
   const [callCount, setCount] = useState(0);
+  const [isActive, setActive] = useState(false);
 
   const audioEl = createRef(null);
 
@@ -14,11 +15,18 @@ function App() {
   async function poll() {
     const response = await axios("http://localhost:8080/poll");
     setCount(response.data.callCount);
+    setActive(response.data.isActive);
   }
 
   async function reset() {
     const response = await axios("http://localhost:8080/reset");
     setCount(response.data.callCount);
+  }
+
+  async function toggle() {
+    const response = await axios("http://localhost:8080/toggle");
+    setCount(response.data.callCount);
+    setActive(response.data.isActive);
   }
 
   function usePrevious(value) {
@@ -46,9 +54,14 @@ function App() {
         <img src={logo} className="App-logo" alt="Meeeow" title="Meeeow" />
         <audio ref={audioEl} src={alarm} />
         <div>
-          <h1 className="App-text">Times Triggered: {callCount} ...</h1>
-          <div className="App-reset-btn" onClick={reset}>
-            Reset
+          <h1 className="App-text">Times Triggered: {callCount}</h1>
+          <div className="App-btn-container">
+            <div className="App-reset-btn" onClick={toggle}>
+              {isActive ? "Stop" : "Start"}
+            </div>
+            <div className="App-reset-btn" onClick={reset}>
+              Reset
+            </div>
           </div>
         </div>
       </header>

@@ -29,12 +29,18 @@
   font-size: calc(10px + 1.8vmin);
 }
 
+.App-btn-container {
+  display: flex;
+}
+
 .App-reset-btn {
   border: 2px solid #fff;
   border-radius: 6px;
-  padding: 10px 30px;
+  padding: 10px 0px;
+  width: 150px;
   font-size: calc(10px + 1.6vmin);
   cursor: pointer;
+  margin: 0 10px;
 }
 
 @keyframes App-logo-spin {
