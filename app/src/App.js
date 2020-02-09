@@ -45,7 +45,7 @@ function App() {
     if (callCount !== 0 && prevCount !== callCount) {
       audioEl.current.play();
     }
-  }, [prevCount, callCount]);
+  }, [prevCount, callCount, audioEl]);
 
   return (
     <div className="App">

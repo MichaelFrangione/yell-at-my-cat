@@ -13,6 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-with-server": "node server/app.js & npm start",
+    "start-with-server-win": "node server/app.js | npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
