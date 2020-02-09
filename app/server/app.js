@@ -8,7 +8,7 @@ let isActive = false;
 
 app.use(cors());
 
-app.get("/notify", function(req, res) {
+app.post("/notify", function(req, res) {
   if (isActive) {
     callCount++;
   }

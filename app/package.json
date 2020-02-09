@@ -12,9 +12,10 @@
     "react-scripts": "3.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start-with-server": "node server/app.js & npm start",
-    "start-with-server-win": "node server/app.js | npm start",
+    "start-front-end": "react-scripts start",
+    "start": "npm run start-front-end & npm run start-server & npm run start-webhook",
+    "start-webhook": "ultrahook -k $(grep ULTRAHOOK_API_KEY .env | cut -d '=' -f2) dev 8080",
+    "start-server": "node server/app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -33,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }
